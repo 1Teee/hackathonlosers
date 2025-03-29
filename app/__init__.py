@@ -16,19 +16,19 @@ def home():
     # location
     # all that stuff
 
-
-    if request.method == "POST":
-        guess = request.form["input"]
-        r = "CORRECT" #(city == guess)
-        print("result method")
-        return render_template('result.html', c = guess, res = r)
-
-    return render_template('index.html', image_link = il)
+    return render_template('index.html', image_link=il)
 
 @app.route('/result', methods=['GET', 'POST'])
 def result():
     print("running result page!")
 
+    if request.method == "POST":
+        guess = request.form["input"]
+        re = ("city" == guess) #JAYLUKOSE ADD THE CITY NAME FROM THE API HERE PLEASE
+        if re: r = "CORRECT nerd" 
+        else: r = "WRONG u loser"
+        print("result method")
+        return render_template('result.html', c=guess, res=r)
     if request.method == "GET":
         "going back home..."
         return redirect(url_for("home"))
