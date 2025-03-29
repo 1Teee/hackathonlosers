@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GeoGuessr Clone</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+        /*change this*/
+        #map { height: 500px; width: 100%; }
+    </style>
+</head>
+<body>
+
+
+<div id="map"></div>
+<p id="coords">Click on the map to get latitude and longitude.</p>
+
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<script>
+    // Initialize the map
+    var map = L.map('map').setView([0, 0], 2);
+
+    // Add OpenStreetMap layer
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+    map.on('click', function(e) {
+        var lat = e.latlng.lat;
+        var lon = e.latlng.lng;
+        //displays coords on the website, send to the flask
+        document.getElementById("coords").innerText = `You clicked at: ${lat}, ${lon}`;
+    });
+</script>
+
+</body>
+</html>
