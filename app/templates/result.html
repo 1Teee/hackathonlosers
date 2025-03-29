@@ -4,39 +4,35 @@
 		<title> DevoGuessr </title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Result</title>
-		<style>
-        body, html {
-            max-width: 100%;
-            height: auto;
-            width: auto\9;
-            text-align: center;
-        }
-        #image {
-            height: auto;
-            width: auto;
-            max-width: 500px;
-            max-height: 500px;
-        }
-        p {
-            text-align: center;
-        }
-        </style>
-
-
+		<title>Home</title>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+        <link rel="stylesheet" href="css/bruh.css">
+        
 </head>
 <body>
-    <p> You guessed: {{c}} </p>
 
-    <id=image img src="{{ image_link }}">
+    <div id="map"></div>
 
-    <p>Your guess is {{res}}!</p>
-    <p>This was {{a}}</p>
-
-
-    <form action="/" method="GET">
-        <button type="submit">Next</button>
-    </form>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        var map = L.map('map', {closePopupOnClick: false}).setView([40, -95], 4);
+        // Add OpenStreetMap layer
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+        L.popup({closeButton: false, autoClose: false})
+                //CHANGE THE LATITUDE AND LONGITUDE
+                .setLatLng([40.7128,-74.0060])
+                .setContent('Your guess')
+                .openOn(map);
+        L.popup({closeButton: false, autoClose: false})
+                .setLatLng([34.0549,-118.2426])
+                .setContent('Answer')
+                .openOn(map);
+        function onMapClick(e) {
+        }
+        map.on('click', onMapClick);
+    </script>
 
 </body>
 </html>
