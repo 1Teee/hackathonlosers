@@ -51,6 +51,11 @@
         //attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
         map.on('click', function(e) {
+            L.popup({closeButton: false})
+            .setLatLng(e.latlng)
+            .setContent('Your guess')
+            .openOn(map);
+            
             lat = e.latlng.lat.toFixed(4);
             lon = e.latlng.lng.toFixed(4);
             console.log("these are the coords:" + lat + lon)

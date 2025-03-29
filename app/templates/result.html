@@ -10,6 +10,7 @@
             max-width: 100%;
             height: auto;
             width: auto\9;
+            text-align: center;
         }
         #image {
             height: auto;
@@ -22,16 +23,15 @@
         }
         </style>
 
-        
+
 </head>
 <body>
-    <h1> this is the result page </h1>
+    <p> You guessed: {{c}} </p>
 
     <id=image img src="{{ image_link }}">
 
-    <h2>you guessed: {{c}}</h2>
-    <h2>dude u got it {{res}}</h2>
-    <h3>you've got mail</h3>
+    <p>Your guess is {{res}}!</p>
+    <p>This was {{a}}</p>
 
 
     <form action="/" method="GET">

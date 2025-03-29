@@ -24,13 +24,14 @@ def result():
 
     if request.method == "POST":
         guess = request.form["input"]
-        re = ("city" == guess) #JAYLUKOSE ADD THE CITY NAME FROM THE API HERE PLEASE
-        if re: r = "CORRECT nerd" 
-        else: r = "WRONG u loser"
+        answer = ""
+        re = (answer == guess) #JAYLUKOSE ADD THE CITY NAME FROM THE API HERE PLEASE
+        if re: r = "correct" 
+        else: r = "incorrect"
         print("result method")
-        return render_template('result.html', c=guess, res=r)
+        return render_template('result.html', c=guess, res=r, a = answer)
     if request.method == "GET":
-        "going back home..."
+        print("going back home...")
         return redirect(url_for("home"))
     
     return render_template('result.html')
