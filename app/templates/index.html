@@ -1,15 +1,23 @@
 <html>
 	<head>
-		<title> The Topher Tracker </title>
+		<title> DevoGuessr </title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Home</title>
-		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 		<style>
         body, html {
             max-width: 100%;
             height: auto;
             width: auto\9;
+        }
+        #image {
+            height: auto;
+            width: auto;
+            max-width: 500px;
+            max-height: 500px;
+        }
+        p {
+            text-align: center;
         }
         </style>
 
@@ -17,5 +25,13 @@
 </head>
 <body>
     <h1> hello world! </h1>
+
+    <id=image img src="{{ image_link }}">
+
+    <form action="/" method="POST">
+        <input type="text" name="input" placeholder="What city is this?" required>
+        <button type="submit">Submit Answer</button>
+    </form>
+
 </body>
 </html>

@@ -10,7 +10,13 @@ key = "AIzaSyAlhdlfM5OklUfOHAK8gdgksuYbOwH3d7o"
 def home():
     print("we're home!")
 
-    return render_template('index.html')
+    il = ""
+
+    if request.method == "POST":
+        city = request.form["input"]
+        return render_template('index.html', image_link = il)
+
+    return render_template('index.html', image_link = il)
 
 if __name__ == "__main__":
     app.debug = True
