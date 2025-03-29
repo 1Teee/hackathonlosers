@@ -24,7 +24,9 @@ def result():
 
     if request.method == "POST":
         guess = request.form["input"]
-        r = "CORRECT" #(city == guess)
+        re = ("city" == guess) #JAYLUKOSE ADD THE CITY NAME FROM THE API HERE PLEASE
+        if re: r = "CORRECT nerd" 
+        else: r = "WRONG u loser"
         print("result method")
         return render_template('result.html', c=guess, res=r)
     if request.method == "GET":
