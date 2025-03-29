@@ -17,18 +17,21 @@
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 <script>
     // Initialize the map
-    var map = L.map('map').setView([0, 0], 2);
-
+    var map = L.map('map').setView([40, -95], 4);
     // Add OpenStreetMap layer
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-    map.on('click', function(e) {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+    
+    function onMapClick(e) {
+        L.popup({closeButton: false})
+            .setLatLng(e.latlng)
+            .setContent('Your guess')
+            .openOn(map);
         var lat = e.latlng.lat;
         var lon = e.latlng.lng;
-        //displays coords on the website, send to the flask
         document.getElementById("coords").innerText = `You clicked at: ${lat}, ${lon}`;
-    });
+    }
+    map.on('click', onMapClick);
 </script>
 
 </body>
