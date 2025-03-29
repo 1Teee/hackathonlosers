@@ -4,7 +4,7 @@
 		<title> DevoGuessr </title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Home</title>
+		<title>Result</title>
 		<style>
         body, html {
             max-width: 100%;
@@ -25,13 +25,17 @@
         
 </head>
 <body>
-    <h1> hello world! </h1>
+    <h1> this is the result page </h1>
 
     <id=image img src="{{ image_link }}">
 
-    <form action="/result" method="POST">
-        <input type="text" name="input" placeholder="What city is this?" required>
-        <button type="submit">Submit Answer</button>
+    <h2>you guessed: {{c}}</h2>
+    <h2>dude u got it {{res}}</h2>
+    <h3>you've got mail</h3>
+
+
+    <form action="/" method="GET">
+        <button type="submit">Next</button>
     </form>
 
 </body>
