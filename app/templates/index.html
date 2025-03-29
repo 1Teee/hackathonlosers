@@ -28,15 +28,20 @@
 </head>
 <body>
     <h1> Welcome to DevoGuessr! </h1>
-    <id=image img src="{{ image_link }}">
 
-    <div id="map"></div>
-    <p id="coords">Click on the map to get latitude and longitude.</p>
+
+
+    <img src="{{ url_for('serve_image', filename='../../streetview_image.jpg')}}" alt="Displayed fucking image">
 
     <form action="{{url_for('result')}}" method="POST">
         <input id="input" name="input" value="{{lat, lon}}" required readonly="readonly">
         <button type="submit">Submit Answer</button>
     </form>
+
+    <div id="map"></div>
+    <p id="coords">Guess the location of the image.</p>
+    
+
 
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script>
